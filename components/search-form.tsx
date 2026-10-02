@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { SearchIcon } from "@/components/icons";
 
 const fieldClassName =
-  "h-10 min-w-0 flex-1 bg-white px-4 text-sm text-[#0f0f0f] outline-none placeholder:text-[#606060]";
+  "h-10 min-w-0 flex-1 bg-field px-4 text-sm text-ink outline-none placeholder:text-muted";
 
 export function SearchForm() {
   const searchParams = useSearchParams();
@@ -35,7 +35,7 @@ function SearchFields({
         Search
       </label>
       {topic && topic !== "all" ? <input type="hidden" name="topic" value={topic} /> : null}
-      <div className="flex min-w-0 flex-1 overflow-hidden rounded-full border border-[#ccc] focus-within:border-[#1c62b9]">
+      <div className="flex min-w-0 flex-1 overflow-hidden rounded-full border border-field-line focus-within:border-[#1c62b9]">
         <input
           id={inputId}
           name="q"
@@ -47,7 +47,7 @@ function SearchFields({
         <button
           type="submit"
           aria-label="Search"
-          className="grid h-10 w-14 shrink-0 place-items-center border-l border-[#ccc] bg-[#f8f8f8] text-[#0f0f0f] hover:bg-[#f0f0f0]"
+          className="grid h-10 w-14 shrink-0 place-items-center border-l border-field-line bg-field-button text-ink hover:bg-field-button-hover"
         >
           <SearchIcon className="size-5" />
         </button>

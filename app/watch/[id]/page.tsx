@@ -38,15 +38,15 @@ export default async function WatchPage({ params }: WatchPageProps) {
           tall={item.kind === "short"}
         />
         <h1 className="mt-3 text-xl leading-7 font-semibold">{item.title}</h1>
-        <p className="mt-2 flex items-center gap-1 text-sm text-[#606060]">
+        <p className="mt-2 flex items-center gap-1 text-sm text-muted">
           <span>{item.channel}</span>
-          <CheckIcon className="size-3.5 shrink-0 text-[#606060]" />
+          <CheckIcon className="size-3.5 shrink-0 text-muted" />
           <span className="sr-only">Verified</span>
           <span>
             {item.views} · {item.uploadedAt}
           </span>
         </p>
-        <section aria-label="Description" className="mt-4 rounded-xl bg-[#f2f2f2] px-3 py-3 text-sm leading-5">
+        <section aria-label="Description" className="mt-4 rounded-xl bg-soft px-3 py-3 text-sm leading-5">
           <p>{item.description}</p>
         </section>
         <Comments initialComments={initialComments(item)} />

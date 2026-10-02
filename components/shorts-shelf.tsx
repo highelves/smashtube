@@ -6,16 +6,18 @@ import { shorts } from "@/lib/videos";
 export function ShortsShelf() {
   return (
     <section aria-label="Shorts" className="py-2">
-      <h2 className="mb-3 flex items-center gap-2 text-lg font-semibold text-[#0f0f0f]">
-        <ShortsMark />
-        Shorts
+      <h2 className="mb-3 text-lg font-semibold text-ink">
+        <Link href="/shorts" className="inline-flex items-center gap-2">
+          <ShortsMark />
+          Shorts
+        </Link>
       </h2>
       <ul className="flex gap-3 overflow-x-auto pb-2">
         {shorts.map((short) => (
           <li key={short.id} className="w-40 shrink-0 sm:w-44">
             <article>
-              <Link href={`/watch/${short.id}`} className="block rounded-xl outline-offset-4">
-              <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-[#f2f2f2]">
+              <Link href={`/shorts?v=${short.id}`} className="block rounded-xl outline-offset-4">
+              <div className="relative aspect-[9/16] overflow-hidden rounded-xl bg-soft">
                 <Image
                   src={short.thumbnail}
                   alt=""
@@ -33,10 +35,10 @@ export function ShortsShelf() {
                   }}
                 />
               </div>
-              <h3 className="mt-2 line-clamp-2 text-sm leading-5 font-semibold text-[#0f0f0f]">
+              <h3 className="mt-2 line-clamp-2 text-sm leading-5 font-semibold text-ink">
                 {short.title}
               </h3>
-              <p className="text-xs text-[#606060]">{short.views}</p>
+              <p className="text-xs text-muted">{short.views}</p>
               </Link>
             </article>
           </li>

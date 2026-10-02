@@ -50,13 +50,13 @@ export function Comments({ initialComments }: CommentsProps) {
             onChange={(event) => setDraft(event.target.value)}
             rows={2}
             placeholder="Add a comment"
-            className="w-full resize-none border-b border-[#e5e5e5] bg-transparent py-1 text-sm outline-none focus:border-[#0f0f0f]"
+            className="w-full resize-none border-b border-line bg-transparent py-1 text-sm outline-none focus:border-ink"
           />
           <div className="mt-2 flex justify-end">
             <button
               type="submit"
               disabled={draft.trim().length === 0}
-              className="h-9 rounded-full bg-[#0f0f0f] px-4 text-sm font-medium text-white disabled:bg-[#f2f2f2] disabled:text-[#909090]"
+              className="h-9 rounded-full bg-inverse px-4 text-sm font-medium text-on-inverse disabled:bg-soft disabled:text-faint"
             >
               Comment
             </button>
@@ -68,9 +68,9 @@ export function Comments({ initialComments }: CommentsProps) {
           <li key={comment.id} className="flex gap-3">
             <Avatar letter={comment.author.slice(0, 1)} />
             <div className="min-w-0">
-              <p className="text-xs text-[#0f0f0f]">
+              <p className="text-xs text-ink">
                 <span className="font-semibold">{comment.author}</span>{" "}
-                <span className="text-[#606060]">{comment.postedAt}</span>
+                <span className="text-muted">{comment.postedAt}</span>
               </p>
               <p className="mt-1 text-sm leading-5">{comment.body}</p>
             </div>

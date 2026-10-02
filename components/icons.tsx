@@ -16,7 +16,7 @@ export function ShuttlecockIcon({ className }: IconProps) {
       />
       <path
         d="M9.2 14.2 7.6 19.2M11.4 13.4l-1.2 5.4M13.5 13.1l-.4 5.6"
-        stroke="#0f0f0f"
+        stroke="var(--page)"
         strokeWidth="1.2"
         strokeLinecap="round"
       />
@@ -121,7 +121,7 @@ export function CheckIcon({ className }: IconProps) {
       <path
         d="M7.5 12.4 10.4 15.2 16.5 8.8"
         fill="none"
-        stroke="#0f0f0f"
+        stroke="var(--page)"
         strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"

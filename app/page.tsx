@@ -39,7 +39,7 @@ export default async function Home({ searchParams }: HomeProps) {
       aria-label={query ? `Results for ${query}` : topic === "all" ? "Recommended" : topicLabel}
       className="space-y-8"
     >
-      <div className="sticky top-16 z-10 -mx-4 -mt-4 bg-white">
+      <div className="sticky top-16 z-10 -mx-4 -mt-4 bg-page">
         <Suspense fallback={<div className="h-12" />}>
           <TopicBar />
         </Suspense>
@@ -52,12 +52,12 @@ export default async function Home({ searchParams }: HomeProps) {
         </>
       ) : (
         <div className="px-2 py-16 text-center">
-          <p className="text-lg text-[#0f0f0f]">
+          <p className="text-lg text-ink">
             {query ? `No videos match “${query}”.` : `No videos in ${topicLabel}.`}
           </p>
           <Link
             href="/"
-            className="mt-4 inline-flex h-10 items-center rounded-full bg-[#0f0f0f] px-4 text-sm font-medium text-white"
+            className="mt-4 inline-flex h-10 items-center rounded-full bg-inverse px-4 text-sm font-medium text-on-inverse"
           >
             Clear search
           </Link>

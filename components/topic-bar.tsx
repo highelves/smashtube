@@ -30,8 +30,8 @@ export function TopicBar() {
               aria-current={active ? "true" : undefined}
               className={`shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium ${
                 active
-                  ? "bg-[#0f0f0f] text-white"
-                  : "bg-[#f2f2f2] text-[#0f0f0f] hover:bg-[#e5e5e5]"
+                  ? "bg-inverse text-on-inverse"
+                  : "bg-soft text-ink hover:bg-raise"
               }`}
             >
               {topic.label}

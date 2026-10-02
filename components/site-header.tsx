@@ -2,24 +2,26 @@ import { Suspense, type ReactNode } from "react";
 import Link from "next/link";
 import { ShuttlecockIcon } from "@/components/icons";
 import { SearchForm, SearchFormFallback } from "@/components/search-form";
+import { ThemeToggle } from "@/components/theme-toggle";
+import type { ThemeChoice } from "@/lib/theme";
 
-export function SiteHeader() {
+export function SiteHeader({ theme }: { theme: ThemeChoice }) {
   return (
-    <header className="sticky top-0 z-20 flex h-16 items-center gap-2 border-b border-[#e5e5e5] bg-white px-3 sm:gap-4 sm:px-4">
+    <header className="sticky top-0 z-20 flex h-16 items-center gap-2 border-b border-line bg-page px-3 sm:gap-4 sm:px-4">
       <button
         type="button"
         aria-label="Menu"
-        className="grid size-10 shrink-0 place-items-center rounded-full text-[#0f0f0f] hover:bg-[#f2f2f2]"
+        className="grid size-10 shrink-0 place-items-center rounded-full text-ink hover:bg-soft"
       >
         <MenuIcon />
       </button>
       <Link href="/" className="flex shrink-0 items-center gap-2">
-        <ShuttlecockIcon className="size-7 text-[#0f0f0f]" />
+        <ShuttlecockIcon className="size-7 text-ink" />
         <span className="flex flex-col leading-tight">
-          <span className="text-lg font-semibold tracking-tight text-[#0f0f0f]">
+          <span className="text-lg font-semibold tracking-tight text-ink">
             Smash<span className="text-[#ff0033]">Tube</span>
           </span>
-          <span className="text-[11px] text-[#606060]">
+          <span className="text-[11px] text-muted">
             Women&apos;s badminton
           </span>
         </span>
@@ -33,6 +35,7 @@ export function SiteHeader() {
         </IconButton>
       </div>
       <div className="flex shrink-0 items-center gap-1">
+        <ThemeToggle theme={theme} />
         <IconButton label="Notifications" className="hidden sm:grid">
           <BellIcon />
         </IconButton>
@@ -61,7 +64,7 @@ function IconButton({
     <button
       type="button"
       aria-label={label}
-      className={`${className} size-10 shrink-0 place-items-center rounded-full text-[#0f0f0f] hover:bg-[#f2f2f2]`}
+      className={`${className} size-10 shrink-0 place-items-center rounded-full text-ink hover:bg-soft`}
     >
       {children}
     </button>

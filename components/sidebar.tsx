@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from "react";
-import Link from "next/link";
+import { GuideLink } from "@/components/guide-link";
 
 type IconProps = {
   className?: string;
@@ -11,12 +11,9 @@ type GuideItem = {
 };
 
 const rowClassName =
-  "flex w-full items-center gap-5 rounded-lg px-3 py-2 text-sm text-[#0f0f0f]";
+  "flex w-full items-center gap-5 rounded-lg px-3 py-2 text-sm text-ink";
 
-const primary: GuideItem[] = [
-  { label: "Shorts", icon: ShortsIcon },
-  { label: "Subscriptions", icon: SubscriptionsIcon },
-];
+const primary: GuideItem[] = [{ label: "Subscriptions", icon: SubscriptionsIcon }];
 
 const library: GuideItem[] = [
   { label: "History", icon: HistoryIcon },
@@ -43,7 +40,14 @@ export function Sidebar() {
       <nav aria-label="Primary" className="px-3 py-2">
         <ul className="flex gap-1 overflow-x-auto lg:hidden">
           <li>
-            <HomeLink />
+            <GuideLink href="/" label="Home">
+              <HomeIcon className="size-6" />
+            </GuideLink>
+          </li>
+          <li>
+            <GuideLink href="/shorts" label="Shorts">
+              <ShortsIcon className="size-6" />
+            </GuideLink>
           </li>
           {primary.map((item) => (
             <GuideRow key={item.label} item={item} />
@@ -53,7 +57,14 @@ export function Sidebar() {
         <div className="hidden lg:block">
           <ul>
             <li>
-              <HomeLink />
+              <GuideLink href="/" label="Home">
+                <HomeIcon className="size-6" />
+              </GuideLink>
+            </li>
+            <li>
+              <GuideLink href="/shorts" label="Shorts">
+                <ShortsIcon className="size-6" />
+              </GuideLink>
             </li>
             {primary.map((item) => (
               <GuideRow key={item.label} item={item} />
@@ -62,7 +73,7 @@ export function Sidebar() {
 
           <Divider />
 
-          <p className="flex items-center gap-2 px-3 py-2 text-base font-semibold text-[#0f0f0f]">
+          <p className="flex items-center gap-2 px-3 py-2 text-base font-semibold text-ink">
             You
             <ChevronIcon className="size-4" />
           </p>
@@ -74,7 +85,7 @@ export function Sidebar() {
 
           <Divider />
 
-          <h2 className="px-3 py-2 text-base font-semibold text-[#0f0f0f]">
+          <h2 className="px-3 py-2 text-base font-semibold text-ink">
             Explore
           </h2>
           <ul>
@@ -85,16 +96,16 @@ export function Sidebar() {
 
           <Divider />
 
-          <h2 className="px-3 py-2 text-base font-semibold text-[#0f0f0f]">
+          <h2 className="px-3 py-2 text-base font-semibold text-ink">
             More from SmashTube
           </h2>
           <div className="flex items-start gap-3 px-3 py-2">
             <PlayBadge />
             <div>
-              <p className="text-sm font-medium text-[#0f0f0f]">
+              <p className="text-sm font-medium text-ink">
                 SmashTube Premium
               </p>
-              <p className="text-xs leading-4 text-[#606060]">
+              <p className="text-xs leading-4 text-muted">
                 Women&apos;s badminton. No ads.
               </p>
             </div>
@@ -102,19 +113,6 @@ export function Sidebar() {
         </div>
       </nav>
     </aside>
-  );
-}
-
-function HomeLink() {
-  return (
-    <Link
-      href="/"
-      aria-current="page"
-      className={`${rowClassName} bg-[#f2f2f2] font-medium`}
-    >
-      <HomeIcon className="size-6" />
-      Home
-    </Link>
   );
 }
 
@@ -132,7 +130,7 @@ function GuideRow({ item }: { item: GuideItem }) {
 }
 
 function Divider() {
-  return <hr className="my-3 border-[#e5e5e5]" />;
+  return <hr className="my-3 border-line" />;
 }
 
 function PlayBadge() {

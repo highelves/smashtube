@@ -16,7 +16,7 @@ export function UpNext({ items }: UpNextProps) {
           <li key={item.id}>
             <Link href={`/watch/${item.id}`} className="flex gap-2 rounded-lg outline-offset-4">
               <span
-                className={`relative shrink-0 overflow-hidden rounded-lg bg-[#f2f2f2] ${item.kind === "short" ? "h-24 w-14" : "h-[94px] w-40"}`}
+                className={`relative shrink-0 overflow-hidden rounded-lg bg-soft ${item.kind === "short" ? "h-24 w-14" : "h-[94px] w-40"}`}
               >
                 <Image
                   src={item.thumbnail}
@@ -31,11 +31,11 @@ export function UpNext({ items }: UpNextProps) {
               </span>
               <span className="min-w-0 py-0.5">
                 <span className="line-clamp-2 text-sm leading-5 font-semibold">{item.title}</span>
-                <span className="mt-1 flex items-center gap-1 text-xs text-[#606060]">
+                <span className="mt-1 flex items-center gap-1 text-xs text-muted">
                   <span className="truncate">{item.channel}</span>
                   <CheckIcon className="size-3 shrink-0" />
                 </span>
-                <span className="mt-0.5 block truncate text-xs text-[#606060]">
+                <span className="mt-0.5 block truncate text-xs text-muted">
                   {item.views} · {item.uploadedAt}
                 </span>
               </span>
